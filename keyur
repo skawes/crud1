@@ -1,0 +1,61 @@
+package com.awes.practice;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.math.BigInteger;
+
+public class Keyur {
+
+	public static void main(String[] args) throws IOException {
+	 File file=new File("E:\\c1.txt");
+	 RandomAccessFile raf=new RandomAccessFile(file,"r");
+	 String searchValue="0000bcbe";
+	 int lineSize = 19;
+	 int numberOfLines = (int) (raf.length() / lineSize);
+     
+	 // perform the binary search...
+	 byte[] lineBuffer = new byte[lineSize];
+	 int bottom = 0;
+	 int top = numberOfLines;
+	 int middle;
+	 int count=0;
+		
+		  while(count!=numberOfLines) {
+		  
+		  System.out.println(raf.readLine());
+		  lineSize+=19; 
+		  raf.seek(lineSize); 
+		  System.out.println(numberOfLines); 
+		  count++;
+		  
+		  }
+		 
+		
+		/*  while (bottom <= top)
+		  { middle = (bottom+top)/2;
+		  raf.seek(middle*lineSize); //jump to this line in the file 
+		 // raf.read(lineBuffer); // read the line from the file 
+		//  String line = new String(lineBuffer); // convert the line to a String
+		  String line=raf.readLine();
+		  String col1[]=line.split("\\t");
+		  
+		 
+		//  System.out.println(line); 
+		  int comparison = col1[0].compareTo(searchValue); 
+		  if(comparison == 0){ 
+			  // found it
+			  System.out.println("found");
+			  break; } 
+		  else if (comparison < 0){ 
+			  // line comes before searchValue 
+			 
+			  bottom = middle + 1; }
+		  else { // line comes after searchValue 
+			  top = middle - 1; } 
+		  }
+		 */
+	}
+
+}
